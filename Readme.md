@@ -158,7 +158,8 @@ $L_{-1}$ = ${\{(x, y) \in D(f) \ | \ \ln(1 - x^2 - y^2) < 0\}}$
 
 $e^{-1} = 1-x^2-y^2 => x^2 + y^2 = 1-1/e => R^2 = \sqrt{1-1/e}\approx 0.795$
 
-$L_{-1} = \left\{ (x, y) \in D(f) \ | \ x^2 + y^2 = \left( \sqrt{\frac{e-1}{e}} \right)^2 \right\}$
+$L_{-1} = \{ (x, y) \in D(f) \ | \ x^2 + y^2 = (\sqrt{\frac{e-1}{e}})^2 \}$
+
 
 Este procéso é análogo para o resto de conxuntos de nivel.
 <br><br><br>
