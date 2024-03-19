@@ -1,6 +1,8 @@
 # Bitácora 1
 
 Faise unha presentación sobre a materia e sobre os criterios de evaluación desta
+<br><br><br>
+
 
 # Bitácora 2
 
@@ -36,6 +38,7 @@ $log_2(\frac{b-a}{\epsilon})<k*log_2(2)$
 $k > log_2(\frac{b-a}{\epsilon})$
 
 Este método e lento, pero de converxencia garantizada.
+<br><br><br>
 
 
 # Bitácora 3
@@ -87,6 +90,8 @@ Este método e parecido ao de Newton. Úsase cando é dificil avaliar $f'(x_k)$ 
 $x_{k+1} = x_k - f(x_k)\frac{x_k-x{k_1}}{f(x_k)-f(x_{k-1})}$
 
 Este método é mais lento que o de newton, xa que ten complexidade áurea ($p = \frac{1+\sqrt{5}}{2}$).
+<br><br><br>
+
 
 # Bitácora 4
 
@@ -102,7 +107,8 @@ $Dom(f) = {(x,y,z) \in \mathbb{R}^3 \ (x,y,0)}$
 
 ou equivalentemente, 
 
-$Dom(f) = \{(x,y,z) \in \mathbb{R}^3 \ | \ (x,y,0)/x,y \in R}$
+$\text{Dom}(f) = \{(x, y, z) \in \mathbb{R}^3 \ | \ z = 0, \ x, y \in \mathbb{R}\}
+$
 
 #### Exemplos de funcións:
 
@@ -119,9 +125,11 @@ $R(f) = [0, +\infty)$
 
 $f(x,y) = x^2 - y^2$
 
-$Dom(f) = \mathbb{R}^3^2$
+$\text{Dom}(f) = (\mathbb{R}^3)^2$
 
 $R(f) = \mathbb{R}$
+<br><br><br>
+
 
 # Bitácora 5
 
@@ -150,5 +158,34 @@ $L_{-1}$ = ${$(x,y) \in D(f) / ln(1-x^2-y^2) < 0$}
 
 $e^{-1} = 1-x^2-y^2 => x^2 + y^2 = 1-1/e => R^2 = \sqrt{1-1/e}\approx 0.795$
 
-Este procéso é análogo para o resto de conxuntos de nivel.
+$L_{-1} = \left\{ (x, y) \in D(f) / x^2 + y^2 = \left( \sqrt{\frac{e-1}{e}} \right)^2 \right\}$
 
+Este procéso é análogo para o resto de conxuntos de nivel.
+<br><br><br>
+
+
+# Bitácora 6
+------------
+<br><br><br>
+
+
+# Bitácora 7
+
+### Derivación de funcións de unha variable
+
+A derivación dunha soa variable $f'(x)$ correspóndese co cálculo da pendente da recta tanxente a curva no punto $x_0$.
+
+A definición de derivada é $\lim_{{h \to 0}} \frac{{f(x+h) - f(x)}}{h}$
+
+Sea $f(x)= x^3 +x^2 +x +2$.
+
+A sua derivada correspóndese con $f'(x)=3x^2+2x+1$
+
+
+
+### Derivación de funcións de duas variables
+
+A función $f$ é derivable respecto de $x$ no punto $(x_0, y_0)$ se existe y é un número o seguinte límite: 
+$\lim_{{h \to 0}} \frac{{f(x_0 + h, y_0) - f(x_0, y_0)}}{h}$.
+
+Para derivar respecto dunha variable, considéranse o resto como constantes, facendo unha derivada normal.
