@@ -107,8 +107,7 @@ $Dom(f) = {(x,y,z) \in \mathbb{R}^3 \ (x,y,0)}$
 
 ou equivalentemente, 
 
-$\text{Dom}(f) = \{(x, y, z) \in \mathbb{R}^3 \ | \ z = 0, \ x, y \in \mathbb{R}\}
-$
+$\text{Dom}(f) = \{(x, y, z) \in \mathbb{R}^3 \ | \ z = 0, \ x, y \in \mathbb{R}\}$
 
 #### Exemplos de funcións:
 
@@ -202,7 +201,7 @@ $\frac{\partial f(x,y)}{\partial y} = 2x -6y$
 
 #### Interpretacion xeométrica
 
-$f_x(x,y)=\frac{\partial f}{\partial x}(x_0, y_0) é a pendente da recta tanxente no punto $P(x_0, y_0, f(x_0, y_0))$ da curva obtida de intersecar a superficie $z = f(x,y)$ co plano $y = y_0$. Mesma forma, ocurre con $f_y(x,y).$
+$f_x(x,y)=\frac{\partial f}{\partial x}(x_0, y_0)$ é a pendente da recta tanxente no punto $P(x_0, y_0, f(x_0, y_0))$ da curva obtida de intersecar a superficie $z = f(x,y)$ co plano $y = y_0$. Mesma forma, ocurre con $f_y(x,y).$
 
 
 ### Plano tanxente
@@ -210,3 +209,91 @@ $f_x(x,y)=\frac{\partial f}{\partial x}(x_0, y_0) é a pendente da recta tanxent
 Para unha superficie $z = f(x,y)$, o plano tanxente ao punto $P(x_0, y_0, f(x_0, y_0))$ queda definido pola seguinte ecuación:
 
 $z = f(x_0, y_0) + f_x(x_0, y_0)(x-x_0) + f_y(x_0, y_0)(y-y_0)$
+
+Exemplo: $f(x,y)=x^2-2xy-3y^2$
+
+(As parciales calculadas antes)
+
+$z = f(x_0, y_0) + f_x(x_0, y_0)(x-x_0) + f_y(x_0, y_0)(y-y_0)$
+
+$z = 0 + 4(x-3) - 12(y-1)$
+
+$z = 4x - 12y$
+<br><br><br>
+
+
+# Bitácora 8
+
+### Método de Newton
+
+Supoñemos que temos unha función non lineal $f:D\subseteq R \rArr R$ diferenciable en D, e queremos atopar $\alpha$ tales que $f(\alpha)=0$.
+
+Para resolver este problema, construimos unha sucesión de puntos $x^k$ de forma que se van achegando a $\alpha$, co cal podemos deter a sucesión cando nos acheguemos o suficinente a 0.
+
+1. Escóllese un primeiro iterante $x^0$
+2. Partindo de $x^k$, constrúese $x^{k+1}$ da seguinte forma: $x^{k+1}=x^k - \frac{f(x^k)}{f'(x^k)}$
+3. Detémosnos se $|x^{k+1} -x|<\epsilon$ ou tamén se $|f(x^k+1)|<\epsilon$, sendo $\epsilon$ unha tolerancia definida.
+4. Dado que o algoritmo pode non converxer, hai que considerar un número máximo de iteracións
+
+### Método de Newton (2D)
+
+Ahora, en vez de contar con unha soa función, contamos con duas.
+
+$f_1:D\subseteq R^2 \rArr R \qquad$  e  $\qquad f_2:D\subseteq R^2 \rArr R$
+
+Igual que no caso anterior, queremos topar valores de $\alpha$ para os cales:
+
+$f_1(\alpha_1, \alpha_2)=0 \qquad$   e  $\qquad f_2(\alpha_1, \alpha_2)=0$
+
+Unha forma de simplificar esto, e facer uso dunha función vectorial:
+
+$f(x_1, x_2):=(f_1(x_1, x_2), f_2(x_1, x_2))$
+
+Ahora, hai que atopar os valores de $\alpha$ para os que:
+
+$f(\alpha_1, \alpha_2):=(f_1(\alpha_1, \alpha_2), f_2(\alpha_1, \alpha_2)) = (0,0)$
+
+Esta vez a sucesión de valores $x^k$ será $(x_1^k, x_2^k), a cal se vai achegando a (\alpha_1, \alpha_2).$
+
+### Método de Newton-Raphson
+
+Xeneralizando o anterior, querese atopar $f(x)=0$ para unha $f:R^n \rArr R^n$. Supoñemos que $\alpha = (\alpha_1, \alpha_2, ..., \alpha_n)t \in R^n$ é unha solución do sistema, e que $f=(f_1, f_2, ..., f_n)$ é duas veces diferenciable.
+
+Empregando o desenvolvemento de Taylor para variables e funcións na contorna do punto $x^k=(x^k_1, x^k_2, ..., x^k_n)$ para obter:
+
+$0 = f(\alpha)=f(x^k)+Df(x^k)(\alpha-x^k)+O(|\alpha -x^k|^2)$
+
+$Df(x^k)$ corresponde a matriz de derivadas parciais ou Matriz Jacobiana.
+
+
+$$ Df(x^k) =
+\left(\begin{array}{cc} 
+\frac{\partial f_1}{\partial x_1}(x^k) & ··· & \frac{\partial f_1}{\partial x_n}(x^k)\\
+· &  ·   & · \\
+· &   ·  & · \\
+· &    · & · \\
+\frac{\partial f_n}{\partial x_1}(x^k) & ··· & \frac{\partial f_n}{\partial x_n}(x^k)\\
+\end{array}\right)
+$$ 
+
+Para duas incógnitas, a matriz Jacobiana vese asi:
+
+$$ Df(x^k) =
+\left(\begin{array}{cc} 
+\frac{\partial f_1}{\partial x_1}(x^k) & ··· & \frac{\partial f_1}{\partial x_2}(x^k)\\
+\frac{\partial f_2}{\partial x_1}(x^k) & ··· & \frac{\partial f_2}{\partial x_2}(x^k)\\
+\end{array}\right)
+$$ 
+
+Cando o termo $|\alpha - x^k|$ é moi pequeno, $O(|\alpha -x^k|^2)$ pode desperdiciarse.
+Por tanto, o resultado para duas variables, é o seguinte:
+
+$0 = f_1(x^k)+\frac{\partial f_1}{\partial x_1}(x^k)(\alpha_1-x^k_1)+\frac{\partial f_1}{\partial x_2}(x^k)(\alpha_2-x^k_2)$
+
+$0 = f_2(x^k)+\frac{\partial f_2}{\partial x_1}(x^k)(\alpha_1-x^k_1)+\frac{\partial f_2}{\partial x_2}(x^k)(\alpha_2-x^k_2)$
+
+Se a matriz $Df(x)$ é invertible, pódese extraer o valor da raíz $\alpha$ de dito sistema, sendo o resultado:
+
+$Df(x^k)(\alpha - x^k) \approx -f(x^k) \rArr \alpha -x^k \approx -Df(x^k)^{-1}f(x^k) \rArr \alpha \approx x^k -Df(x^k){-1}f(x^k)$
+
+Polo tanto, o método de Newton consiste na aproximación da solución $x^{k+1}:=x^k -Df(x^k){-1}f(x^k), \qquad k=0,1,2...$
