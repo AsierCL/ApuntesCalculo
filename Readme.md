@@ -33,7 +33,7 @@ Atopar o k necesario para queo erro cometido sea menor que $\epsilon$:
 
 Resólvemos a inecuación $\frac{b-a}{\epsilon}<2^k$:
 
-$log_2(\frac{b-a}{\epsilon})<k*log_2(2)$
+$\log_2\left(\frac{b-a}{\epsilon}\right)<k\log_2(2)$
 
 $k > log_2(\frac{b-a}{\epsilon})$
 
@@ -186,7 +186,27 @@ A sua derivada correspóndese con $f'(x)=3x^2+2x+1$
 
 ### Derivación de funcións de duas variables
 
+#### Derivada parcial respecto de $x$
+
 A función $f$ é derivable respecto de $x$ no punto $(x_0, y_0)$ se existe y é un número o seguinte límite: 
 $\lim_{{h \to 0}} \frac{{f(x_0 + h, y_0) - f(x_0, y_0)}}{h}$.
 
 Para derivar respecto dunha variable, considéranse o resto como constantes, facendo unha derivada normal.
+O proceso é análogo para $y$.
+
+Exemplo: $f(x,y)=x^2-2xy-3y^2$
+
+$\frac{\partial f(x,y)}{\partial x} = 2x -2y$
+
+$\frac{\partial f(x,y)}{\partial y} = 2x -6y$
+
+#### Interpretacion xeométrica
+
+$f_x(x,y)=\frac{\partial f}{\partial x}(x_0, y_0) é a pendente da recta tanxente no punto $P(x_0, y_0, f(x_0, y_0))$ da curva obtida de intersecar a superficie $z = f(x,y)$ co plano $y = y_0$. Mesma forma, ocurre con $f_y(x,y).$
+
+
+### Plano tanxente
+
+Para unha superficie $z = f(x,y)$, o plano tanxente ao punto $P(x_0, y_0, f(x_0, y_0))$ queda definido pola seguinte ecuación:
+
+$z = f(x_0, y_0) + f_x(x_0, y_0)(x-x_0) + f_y(x_0, y_0)(y-y_0)$
