@@ -226,7 +226,7 @@ $z = 4x - 12y$
 
 ### Método de Newton
 
-Supoñemos que temos unha función non lineal $f:D\subseteq R \rArr R$ diferenciable en D, e queremos atopar $\alpha$ tales que $f(\alpha)=0$.
+Supoñemos que temos unha función non lineal $f:D\subseteq R \to R$ diferenciable en D, e queremos atopar $\alpha$ tales que $f(\alpha)=0$.
 
 Para resolver este problema, construimos unha sucesión de puntos $x^k$ de forma que se van achegando a $\alpha$, co cal podemos deter a sucesión cando nos acheguemos o suficinente a 0.
 
@@ -239,7 +239,7 @@ Para resolver este problema, construimos unha sucesión de puntos $x^k$ de forma
 
 Ahora, en vez de contar con unha soa función, contamos con duas.
 
-$f_1:D\subseteq R^2 \rArr R \qquad$  e  $\qquad f_2:D\subseteq R^2 \rArr R$
+$f_1:D\subseteq R^2 \to R \qquad$  e  $\qquad f_2:D\subseteq R^2 \to R$
 
 Igual que no caso anterior, queremos topar valores de $\alpha$ para os cales:
 
@@ -257,7 +257,7 @@ Esta vez a sucesión de valores $x^k$ será $(x_1^k, x_2^k), a cal se vai achega
 
 ### Método de Newton-Raphson
 
-Xeneralizando o anterior, querese atopar $f(x)=0$ para unha $f:R^n \rArr R^n$. Supoñemos que $\alpha = (\alpha_1, \alpha_2, ..., \alpha_n)t \in R^n$ é unha solución do sistema, e que $f=(f_1, f_2, ..., f_n)$ é duas veces diferenciable.
+Xeneralizando o anterior, querese atopar $f(x)=0$ para unha $f:R^n \to R^n$. Supoñemos que $\alpha = (\alpha_1, \alpha_2, ..., \alpha_n)t \in R^n$ é unha solución do sistema, e que $f=(f_1, f_2, ..., f_n)$ é duas veces diferenciable.
 
 Empregando o desenvolvemento de Taylor para variables e funcións na contorna do punto $x^k=(x^k_1, x^k_2, ..., x^k_n)$ para obter:
 
@@ -294,6 +294,111 @@ $0 = f_2(x^k)+\frac{\partial f_2}{\partial x_1}(x^k)(\alpha_1-x^k_1)+\frac{\part
 
 Se a matriz $Df(x)$ é invertible, pódese extraer o valor da raíz $\alpha$ de dito sistema, sendo o resultado:
 
-$Df(x^k)(\alpha - x^k) \approx -f(x^k) \rArr \alpha -x^k \approx -Df(x^k)^{-1}f(x^k) \rArr \alpha \approx x^k -Df(x^k){-1}f(x^k)$
+$Df(x^k)(\alpha - x^k) \approx -f(x^k) \to \alpha -x^k \approx -Df(x^k)^{-1}f(x^k) \to \alpha \approx x^k -Df(x^k){-1}f(x^k)$
 
 Polo tanto, o método de Newton consiste na aproximación da solución $x^{k+1}:=x^k -Df(x^k){-1}f(x^k), \qquad k=0,1,2...$
+<br><br><br>
+
+
+# Bitácora 9
+
+### Método de Newton (continuación)
+
+Se a matriz $Df(x^k)$ é invertible, entón podemos aproximar a raíz $\alpha$ despexándoa da seguinte relación:
+$Df(x^k)(\alpha - x^k) \approx -f(x^k) \to Df(x^k)(x^{k+1}-x^k) \approx -f(x^k)$
+
+A nosa incógnita é $x^{k+1}$ que se corresponde co seguinte termo:
+
+$x^{x+1}=x^k-(Df^{-1}(x^k)f(x^k))$
+
+Esta ecoacuón final, aseméllase coa ecuación do método para unha incógnita: $x^{k+1}=x^k-\frac{f(x^k)}{f'(x^k)}$, solo que en vez de dividir pola derivada de $f(x)$, multiplicamos pola inversa da matriz Jacobiana, polo que esta debe ser invertible.
+
+???????? Algoritmo para invertir a matriz ¿¿¿¿¿¿¿¿¿¿¿¿¿
+
+### Derivadas parciais de segunda orde
+
+As derivadas parciais de segunda orde, fanse con respecto as derivadas parciais de x e de y:
+
+$\frac{\partial^2f}{\partial x^2}(x,y)=\frac{\alpha}{\alpha x}(\frac{\alpha f}{\partial x}(x,y))=f_{xx}(x,y)$
+
+$\frac{\partial^2f}{\partial y \partial x}(x,y)=\frac{\alpha}{\alpha y}(\frac{\alpha f}{\partial x}(x,y))=f_{xy}(x,y)$
+
+$\frac{\partial^2f}{\partial y^2}(x,y)=\frac{\alpha}{\alpha y}(\frac{\alpha f}{\partial x}(x,y))=f_{yy}(x,y)$
+
+$\frac{\partial^2f}{\partial x \partial y}(x,y)=\frac{\alpha}{\alpha x}(\frac{\alpha f}{\partial y}(x,y))=f_{yx}(x,y)$
+
+### Teorema das derivadas parcias mixtas e Matriz Hessiana
+
+Se $f(x,y)$ e as súas derivadas parciais están definidas nunha rexion aberta que conten o unto (a,b) e son continuas en (a,b), entón cumprese o dito anteriormente.
+
+$\frac{\alpha}{\alpha x}(\frac{\alpha f}{\alpha y}(x,y))=\frac{\alpha}{\alpha y}(\frac{\alpha f}{\alpha x}(x,y))$
+
+A partir das derivdas segundas da función f, podemos construir a Matriz Hessiana:
+
+$$ Hf(x^k) =
+\left(\begin{array}{cc} 
+f_{xx}(x,y) & f_{xy}(x,y)\\
+f_{yx}(x,y) & f_{yy}(x,y)\\
+\end{array}\right)
+$$ 
+
+### Vector gradiente
+
+Sexa $f(x,y) unha función para a que existen as derivadas parciais $\frac{\alpha f}{\alpha x}(x,y),\frac{\alpha f}{\alpha y}(x,y)$ e son continuas, o vector gradiente defínese como: 
+
+$\nabla f(x,y)=(\frac{\alpha f}{\alpha x}(x,y),\frac{\alpha f}{\alpha y}(x,y)$
+
+##### Exemplo de vector gradiente
+
+$T(x,y)=100 - x^2 -y^2$
+
+$\nabla T(x,y)=(\frac{\alpha T}{\alpha x}(x,y),\frac{\alpha T}{\alpha y}(x,y))= (-2x,-2y)$
+
+### Función vectorial
+
+Cando temos máis variables, en vez de ter un vector gradiente, temos unha función vectorial que sigue a seguinte definicion:
+
+$f:x\in Dom(f) \subseteq \R^n \to f(x)=(f_1(x),...mf_m(x))\in \R^m$
+
+### Matriz Xacobiana (xeral)
+
+Esta matriz caracterízase por ter tantas filas como compoñentes da imaxe, e tantas columnas como variables independientes. No caso particular de funcións escalares (m=1), a matriz Jacobiana coincide co vector gradiente, como por exemplo:
+
+$f(x,y)=ln(x^2+y^2)$
+
+$Df(x,y)=(\frac{2x}{x^2+y^2} \frac{2y}{x^+y^2})= \nabla f(x,y)$
+<br><br><br>
+
+
+# Bitácora 10
+
+### Regra da cadea
+
+#### Caso 1
+Supoñendo dúas funcións tal que 
+
+$g: Dom(g) \subseteq R^n\to R^m$
+$f: Dom(f) \subseteq R^m\to R^p$
+
+pódense compoñer as dúas funcións $[R^n \to g \to R^m \to f \to R^p]$ tendo todas as derivadas parciais contínuas. Verifícase entón: 
+
+$D(g \circ f)(x) = Df(g(x))Dg(x)$  
+
+#### Caso 2
+
+No caso 2, vólvese a ter unha función $f(x,y)$ de dúas variables, pero estas en vez de depender dunha única variable, dependen de 2:
+$x=x(u,v), y=y(u,v)$
+
+A composición:
+
+$w(u,v):= (f \circ r)(u,v) = f(r(u,v)) = f(x(u,v),y(u,v))$
+
+É unha función de dúas variables que ten como derivadas parciais:
+
+$\frac{\partial w}{\partial u}=\frac{\partial f}{\partial x}(r(u,v))\frac{\partial x}{\partial u} + \frac{\partial f}{\partial y}(r(u,v))\frac{\partial y}{\partial u}$
+
+$\frac{\partial w}{\partial v}=\frac{\partial f}{\partial x}(r(u,v))\frac{\partial x}{\partial v} + \frac{\partial f}{\partial y}(r(u,v))\frac{\partial y}{\partial v}$
+
+que compoñen a matriz resultante da derivada da composición:
+
+$D(f\circ r)=Df(r(u,v))Dr(u,v)=(\frac{\partial w}{\partial u}  \frac{\partial w}{\partial v})$
