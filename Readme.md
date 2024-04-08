@@ -33,7 +33,7 @@ Atopar o k necesario para queo erro cometido sea menor que $\epsilon$:
 
 Resólvemos a inecuación $\frac{b-a}{\epsilon}<2^k$:
 
-$\log_2\left(\frac{b-a}{\epsilon}\right)<k\log_2(2)$
+$log_2 (\frac{b-a}{\epsilon})<k log_2(2)$
 
 $k > log_2(\frac{b-a}{\epsilon})$
 
@@ -358,7 +358,7 @@ $\nabla T(x,y)=(\frac{\alpha T}{\alpha x}(x,y),\frac{\alpha T}{\alpha y}(x,y))= 
 
 Cando temos máis variables, en vez de ter un vector gradiente, temos unha función vectorial que sigue a seguinte definicion:
 
-$f:x\in Dom(f) \subseteq \R ^n \to f(x)=(f_1(x),...mf_m(x))\in \R^ m$
+$f:x\in Dom(f) \subseteq R^n \to f(x)=(f_1(x),...mf_m(x))\in R^ m$
 
 ### Matriz Xacobiana (xeral)
 
