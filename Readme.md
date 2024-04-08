@@ -346,7 +346,7 @@ $$
 
 Sexa $f(x,y) unha función para a que existen as derivadas parciais $\frac{\alpha f}{\alpha x}(x,y),\frac{\alpha f}{\alpha y}(x,y)$ e son continuas, o vector gradiente defínese como: 
 
-$\nabla f(x,y)=(\frac{\alpha f}{\alpha x}(x,y),\frac{\alpha f}{\alpha y}(x,y)$
+$\nabla f(x,y)=(\frac{\alpha f}{\alpha x}(x,y),\frac{\alpha f}{\alpha y}(x,y))$
 
 ##### Exemplo de vector gradiente
 
@@ -358,7 +358,7 @@ $\nabla T(x,y)=(\frac{\alpha T}{\alpha x}(x,y),\frac{\alpha T}{\alpha y}(x,y))= 
 
 Cando temos máis variables, en vez de ter un vector gradiente, temos unha función vectorial que sigue a seguinte definicion:
 
-$f:x\in Dom(f) \subseteq \R^n \to f(x)=(f_1(x),...mf_m(x))\in \R^m$
+$f:x\in Dom(f) \subseteq \R ^n \to f(x)=(f_1(x),...mf_m(x))\in \R^ m$
 
 ### Matriz Xacobiana (xeral)
 
@@ -402,3 +402,37 @@ $\frac{\partial w}{\partial v}=\frac{\partial f}{\partial x}(r(u,v))\frac{\parti
 que compoñen a matriz resultante da derivada da composición:
 
 $D(f\circ r)=Df(r(u,v))Dr(u,v)=(\frac{\partial w}{\partial u}  \frac{\partial w}{\partial v})$
+<br><br><br>
+
+
+# Bitácora 11
+
+### Derivación implícita
+
+Para unha gráfica $f(x,y)$, a variable y pode estar definida de forma implíciat como un conxunto de nivel de valor 0: $f(x,y)=0$
+
+Se F permite derivadas parciais e estas son continuas ¡, entón:
+
+$\frac{dy}{dx}=-\frac{F_x(x,y)}{F_y(x,y)}; \forall F_y(x,y)\not ={0}$
+
+Este método é equivalente á derivación implícita, que consiste en:
+
+1. Derivación de ambos membros da ecuaación
+2. Despexe de $y'(x)$
+
+##### Exemplo
+
+Calcular $\frac{dy}{dx}$ en: $y^5-2y-x=0$
+
+Definimos as derivadas parciais:
+
+$F_x(x,y)=-1 \qquad F_y(x,y)=5y^4-2$
+
+$\frac{dy}{dx}=-\frac{F_x(x,y)}{F_y(x,y)} = -\frac{-1}{5y^4-2} = \frac{1}{5y^4-2}$
+
+Se en vez de empregar a fórmula, derivamos implícitamente, obtemos os mesmos resultados.
+
+$y(x)^5-2y(x)-x=0; \qquad 5y(x)^4\frac{dy}{dx}-2\frac{dy}{dx}-1=0$
+
+$\frac{dy}{dx}(5y(x)^4-2)=1; \qquad \frac{dy}{dx}=\frac{1}{5y^4-2}$
+<br><br><br>
