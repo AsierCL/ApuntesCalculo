@@ -409,15 +409,15 @@ $D(f\circ r)=Df(r(u,v))Dr(u,v)=(\frac{\partial w}{\partial u}  \frac{\partial w}
 
 ### Derivación implícita
 
-Para unha gráfica $f(x,y)$, a variable y pode estar definida de forma implíciat como un conxunto de nivel de valor 0: $f(x,y)=0$
+Para unha gráfica $f(x,y)$, a variable y pode estar definida de forma implícita como un conxunto de nivel de valor 0: $f(x,y)=0$
 
-Se F permite derivadas parciais e estas son continuas ¡, entón:
+Se F permite derivadas parciais e estas son continuas, entón:
 
 $\frac{dy}{dx}=-\frac{F_x(x,y)}{F_y(x,y)}; \forall F_y(x,y)\not ={0}$
 
 Este método é equivalente á derivación implícita, que consiste en:
 
-1. Derivación de ambos membros da ecuaación
+1. Derivación de ambos membros da ecuación
 2. Despexe de $y'(x)$
 
 ##### Exemplo
@@ -436,3 +436,82 @@ $y(x)^5-2y(x)-x=0; \qquad 5y(x)^4\frac{dy}{dx}-2\frac{dy}{dx}-1=0$
 
 $\frac{dy}{dx}(5y(x)^4-2)=1; \qquad \frac{dy}{dx}=\frac{1}{5y^4-2}$
 <br><br><br>
+
+
+# Bitácora 12
+
+### Derivadas direccionais
+
+Estas derivadas permiten analizar como varía a función nunha dirección determinada do plano $xy$, e para eso usamos os vectores unitarios $i=(1,0) \quad j=(0,1)$.
+
+Segundo se avanza na dirección indicada, a recta tanxente varia de forma que pode definirse como a tanxente en dirección $u$ mediante a seguinte derivada (derivada direccional en dirección $u$).
+
+$D_uF(x_0,y_0)=\lim_{s \to \infty} \frac{f((x_0,y_0)+su)-f(x_0,y_0)}{s}$
+
+A derivada direccional tamén pode expresarse en función ao vector gradiente coa seguinte expresión: $D_uF(x_0,y_0)=\nabla f(x_0,y_0)*u = ||\nabla f(x_0,y_0)||*||u||*\cos(\theta)$
+
+Recordatorio de que o vector gradiente calcúlase da seguinte forma $\nabla f(x,y)=(\frac{\partial f}{\partial x}(x,y),\frac{\partial f}{\partial y}(x,y))$
+
+É importante destacar que as derivadas parciais poden ser entendidas como casos particulares das derivadas direccionais, onde se toman os vectores $(0,1)$ e $(1,0)$, e dicir, tómanse os eixes x e y respectivamente como referencia. Por tanto:
+
+$D_{(1,0)}f(x,y)=\frac{\partial f}{\partial x}(x,y) \quad$ e $\quad D_{(0,1)}f(x,y)=\frac{\partial f}{\partial y}(x,y)$
+
+### Extremos de funcións de duas variables
+
+No caso de traballar con funcións dunha variable, os extremos detectábanse cando a derivada era nula. Agora, traballando con funcións de $\R^2$ en $\R$, pódense definir os seguintes conceptos:
+
+- Extremos absolutos:
+  - $(x_0, y_0)$ é un máximo absoluto de $f(x,y)$ se $f(x_0, y_0) \geq f(x,y), \forall(x,y) \in Dom(f)$
+  - $(x_0, y_0)$ é un mínimo absoluto de $f(x,y)$ se $f(x_0, y_0) \leq f(x,y), \forall(x,y) \in Dom(f)$
+- Extremos relativos:
+  - $(x_0, y_0)$ é un máximo relativo de $f(x,y)$ se $f(x_0, y_0) \geq f(x,y), \forall(x,y)$ dun círculo con centro en $(x_0, y_0)$
+  - $(x_0, y_0)$ é un mínimo relativo de $f(x,y)$ se $f(x_0, y_0) \leq f(x,y), \forall(x,y)$ dun círculo con centro en $(x_0, y_0)$
+
+Se nun punto da gráfica hai un extremo no que ademais existen as derivadas parciais, cúmprese que $\frac{\partial f}{\partial x}(x_0, y_0)=\frac{\partial f}{\partial y}(x_0, y_0)$, levando a que o "detector" de extremos sexa o plano tanxente da forma $z = f(x_0, y_0) +f(x_0,y_0)* 
+\left(\begin{array}{cc} 
+x-x_0\\
+y-y_0\\
+\end{array}\right)$
+
+### Puntos críticos
+
+Un punto crítico dunha función é aquel que verifica: $\frac{\partial f}{\partial x}(x_0, y_0)=\frac{\partial f}{\partial y}(x_0, y_0)=0$, ou unha das derivadas parciais nese punto non existe.
+
+Se temos un punto crítico que non é un extremo, podemos estar ante un punto de sela. 
+
+### Hessiano
+
+$$ |Hf(x^k)| =
+\left(\begin{array}{cc} 
+\frac{\partial^2f}{\partial x^2}(x_0,y_0) & \frac{\partial^2f}{\partial x \partial y}(x_0,y_0)\\
+\frac{\partial x \partial y}{\partial x^2}(x_0,y_0) & \frac{\partial^2f}{\partial y^2}(x_0,y_0)\\
+\end{array}\right)
+$$ 
+
+Se unha función $f(x,y)$ ten un punto crítico en $(x_0,y_0)$:
+- Se $|Hf(x^k)| > 0$ e $\frac{\partial^2f}{\partial x^2}(x_0,y_0)<0$, hai un máximo relativo.
+- Se $|Hf(x^k)| > 0$ e $\frac{\partial^2f}{\partial x^2}(x_0,y_0)>0$, hai un mínimo relativo.
+- Se $|Hf(x^k)| < 0$ é un punto de sela.
+- Se $|Hf(x^k)| = 0$ o criterio non decide.
+
+Exemplo:
+
+Determinar os extremos relativos de $f(x,y) = x^2 + y^2$
+
+$f_x(x,y)=2x, f_y(x,y)=2y$, por tanto, o único punto crítico é o $(0,0)$.
+
+Ahora, formamos o hessiano: 
+
+$\frac{\partial^2f}{\partial x^2}(x_0,y_0) = 2$
+$\frac{\partial^2f}{\partial x \partial y}(x_0,y_0) = 0$
+$\frac{\partial x \partial y}{\partial x^2}(x_0,y_0) = 0$
+$\frac{\partial^2f}{\partial y^2}(x_0,y_0) = 2$
+ 
+$$ |Hf(0,0)| =
+\left(\begin{array}{cc} 
+2 & 0\\
+0 & 2\\
+\end{array}\right)
+$$ 
+
+$|Hf(0,0)| = 4 > 0  \qquad \frac{\partial^2f}{\partial x^2}(x_0,y_0) = 2>0$, polo que concluímos que é un mínimo relativo.
